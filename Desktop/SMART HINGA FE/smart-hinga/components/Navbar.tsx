@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className="border-2 border-red-5 flexBetween max-container padding-container relative z-30 py-5">
             <Link href="/">
-                <Image src="/logosmart.PNG" alt="smart hinga" width={80} height={80} />
+                <Image src="/HINGAS.svg" alt="smart hinga" width={150} height={150} />
             </Link>
             <ul className="hidden h-ful gap-12 lg:flex">
                 {NAV_LINKS.map((link) => (
