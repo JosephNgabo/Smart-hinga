@@ -1,13 +1,23 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
 import { NAV_LINKS } from "@/constants";
 import Button from "./Button";
+import { useRouter } from 'next/navigation';
+
+
+
 
 const Navbar = () => {
+    const router = useRouter();
+    const handleGetStartedClick = () => {
+        router.push('/users');
+      };
+    
     return (
         <nav className="border-2 border-red-5 flexBetween max-container padding-container relative z-30 py-5">
             <Link href="/">
-                <Image src="/logosmart.PNG" alt="smart hinga" width={80} height={80} />
+                <Image src="/HINGAS.svg" alt="smart hinga" width={150} height={150} />
             </Link>
             <ul className="hidden h-ful gap-12 lg:flex">
                 {NAV_LINKS.map((link) => (
@@ -26,7 +36,8 @@ const Navbar = () => {
                     title='Get started'
                     icon="/user.svg"
                     variant='btn_dark_green'
-                />
+                    onClick={handleGetStartedClick}
+                    />
             </div>
             <Image src="/menu.svg" alt="menu" width={30} height={30} 
             className="inline-block cursor-pointer lg:hidden"/>
