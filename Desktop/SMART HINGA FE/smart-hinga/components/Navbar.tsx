@@ -11,8 +11,7 @@ import { useRouter } from 'next/navigation';
 const Navbar = () => {
     const router = useRouter();
     const handleGetStartedClick = () => {
-        
-        router.push('pages/signup');
+        router.push('/users');
       };
     
     return (
