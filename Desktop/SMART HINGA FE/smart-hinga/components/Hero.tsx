@@ -35,6 +35,7 @@ const Hero = () => {
               icon="/play.svg"
               title="How we work?"
               variant="btn_white_text"
+
             />
           </div>
         </div>

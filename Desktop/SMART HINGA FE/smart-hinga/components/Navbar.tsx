@@ -1,9 +1,20 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
 import { NAV_LINKS } from "@/constants";
 import Button from "./Button";
+import { useRouter } from 'next/navigation';
+
+
+
 
 const Navbar = () => {
+    const router = useRouter();
+    const handleGetStartedClick = () => {
+        
+        router.push('pages/signup');
+      };
+    
     return (
         <nav className="border-2 border-red-5 flexBetween max-container padding-container relative z-30 py-5">
             <Link href="/">
@@ -26,7 +37,8 @@ const Navbar = () => {
                     title='Get started'
                     icon="/user.svg"
                     variant='btn_dark_green'
-                />
+                    onClick={handleGetStartedClick}
+                    />
             </div>
             <Image src="/menu.svg" alt="menu" width={30} height={30} 
             className="inline-block cursor-pointer lg:hidden"/>
