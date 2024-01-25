@@ -18,28 +18,28 @@ export const NAV_LINKS = [
   // FEATURES SECTION
   export const FEATURES = [
     {
-      title: 'Real maps can be offline',
+      title: 'Choose the crops according to your location',
       icon: '/map.svg',
       variant: 'green',
       description:
         'We provide a solution for you to be able to use our application when climbing, yes offline maps you can use at any time there is no signal at the location',
     },
     {
-      title: 'Set an adventure schedule',
+      title: 'Your weather conditions',
       icon: '/calendar.svg',
       variant: 'green',
       description:
         "Schedule an adventure with friends. On holidays, there are many interesting offers from Hilink. That way, there's no more discussion",
     },
     {
-      title: 'Technology using augment reality',
+      title: 'Meet our Online consultants',
       icon: '/tech.svg',
       variant: 'green',
       description:
         'Technology uses augmented reality as a guide to your hiking trail in the forest to the top of the mountain. Already supported by the latest technology without an internet connection',
     },
     {
-      title: 'Many new locations every month',
+      title: 'Access the market trending crops in Rwanda',
       icon: '/location.svg',
       variant: 'orange',
       description:
@@ -52,7 +52,7 @@ export const NAV_LINKS = [
     {
       title: 'Learn More',
       links: [
-        'About Hilink',
+        'About Smart Hinga',
         'Press Releases',
         'Environment',
         'Jobs',
@@ -62,15 +62,15 @@ export const NAV_LINKS = [
     },
     {
       title: 'Our Community',
-      links: ['Climbing xixixi', 'Hiking hilink', 'Hilink kinthill'],
+      links: ['Best tech support team', 'About Smart Hinga', 'Access weather changing informations'],
     },
   ];
   
   export const FOOTER_CONTACT_INFO = {
     title: 'Contact Us',
     links: [
-      { label: 'Admin Officer', value: '123-456-7890' },
-      { label: 'Email Officer', value: 'hilink@akinthil.com' },
+      { label: 'Admin Officer Patrick Lens', value: '078-2222-6732' },
+      { label: 'Email Officer', value: 'smarthinga@rwanda.com' },
     ],
   };
   
