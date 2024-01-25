@@ -15,7 +15,7 @@ const Navbar = () => {
       };
     
     return (
-        <nav className="border-2 border-red-5 flexBetween max-container padding-container relative z-30 py-5">
+        <nav className="border-1 border-red-5 flexBetween max-container padding-container relative z-30 py-5">
             <Link href="/">
                 <Image src="/HINGAS.svg" alt="smart hinga" width={150} height={150} />
             </Link>
