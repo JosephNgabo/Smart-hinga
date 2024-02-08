@@ -21,12 +21,11 @@ const Page = () => {
         }
       );
       console.log(response);
-      const { token, user } = response.data;
-      const userData = {
-        token,
-        user,
-      };
-      localStorage.setItem("user", JSON.stringify(userData));
+      const {token,farmer} = response.data;
+    
+      localStorage.setItem("user", JSON.stringify(farmer));
+      localStorage.setItem("token", token);
+      
       toast.success("Login successful!");
       router.push("/dashboard");
     } catch (error) {
