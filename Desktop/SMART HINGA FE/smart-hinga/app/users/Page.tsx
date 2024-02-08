@@ -1,6 +1,40 @@
-import React from "react";
+"use client";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/farmers/login`,
+        {
+          email,
+          password,
+        }
+      );
+      console.log(response);
+      const { token, user } = response.data;
+      const userData = {
+        token,
+        user,
+      };
+      localStorage.setItem("user", JSON.stringify(userData));
+      toast.success("Login successful!");
+      router.push("/dashboard");
+    } catch (error) {
+      console.log(error);
+      toast.error("Login failed. Please check your credentials.");
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
@@ -8,8 +42,7 @@ const Page = () => {
           Sign In to Your Account
         </h2>
 
-        {/* Email and Password Form */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="email"
@@ -21,6 +54,8 @@ const Page = () => {
               type="email"
               id="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="mt-1 p-3 w-full border rounded-md"
               placeholder="example@example.com"
             />
@@ -28,7 +63,6 @@ const Page = () => {
 
           <div>
             <label
-            
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
             >
@@ -38,6 +72,8 @@ const Page = () => {
               type="password"
               id="password"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="mt-1 p-3 w-full border rounded-md"
               placeholder="Your Password"
             />
@@ -60,7 +96,6 @@ const Page = () => {
             </a>
           </div>
 
-          {/* Sign In Button */}
           <button
             type="submit"
             className="w-full p-3 bg-green-700 text-white rounded-md hover:bg-green-600"
@@ -75,7 +110,6 @@ const Page = () => {
           <span className="border-b w-1/4"></span>
         </div>
 
-        {/* Social Media Buttons */}
         <div className="flex mt-6 space-x-4">
           <button className="w-full p-3 bg-white-500 border-2  text-blue-70 rounded-md hover:bg-slate-400-600">
             Google
@@ -89,6 +123,7 @@ const Page = () => {
           </a>
         </p>
       </div>
+      <ToastContainer /> {/* This is where the toast messages will be displayed */}
     </div>
   );
 };
